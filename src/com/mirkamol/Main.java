@@ -1,67 +1,68 @@
-String[] names = {
-        "James",
-        "Nadi",
-        "Sophia",
-        "Alex",
-        "Saleh"
-};
+char grade = 'B';
 
 void main() {
-    useDoWhileLoop();
+useNewSwitchExpresion();
+
+}
+void useNewSwitchExpresion(){
+    String result = switch (grade){
+        case 'A' -> "Excellent";
+        case 'B', 'C' -> "Pass";
+        default -> "Fail";
+    };
+    System.out.println(result);
 }
 
-void useDoWhileLoop(){
-    int i = 0;
-    boolean keepLooping = true;
-    do {
-        System.out.println("hello");
-        keepLooping = false; // recommended 😃
-    } while (keepLooping);
-}
-
-void useWhileLoop(){
-    // while loos
-    int i = 0;
-    boolean keepLooping = true;
-    while (keepLooping){
-        System.out.println("hello");
-        keepLooping = false; // recommended 😃
+void useSwitchExpression(){
+    // byte short int char enums String
+    // Byte Short Integer Character
+    switch (grade){
+        case 'A':
+            System.out.println("Excellent");
+            break;
+        case 'B':
+        case 'C':
+            System.out.println("Pass");
+            break;
+        default:
+            System.out.println("Fail");
     }
 }
 
-void useEnhancedForLoop(){
-    System.out.println("enhanced for loop");
-    for (String name : names) {
-        System.out.println(name);
+void useOrLogicalOperatorsInIf(){
+    String gender = "Male";
+
+    if(gender.equalsIgnoreCase("FEMALE") || gender.equalsIgnoreCase("MALE")){
+        System.out.println("Valid Gender");
+    } else {
+        System.out.println("Invalid Gender");
     }
 }
+void useAndLogicalOperatorsInIf(){
+    int age = 2;
+    boolean isAdult = age >= 16;
+    if(isAdult){
+        System.out.println("is adult :)");
+    } else if (age == 0){
+        System.out.println("baby :)");
+    }else if (age > 0 && age < 4){
+        System.out.println("toddler :)");
+    } else {
+        System.out.println("is not adult :(");
 
-void useLoopAndArray() {
-
-    System.out.println("for i loop");
-    for (int i = 0; i < names.length; i++) {
-        String prev = names[i-1];
-        System.out.println(names[i]);
-        String next = names[i+1];
     }
-//    System.out.println(names[0]);
-//    System.out.println(names[1]);
-//    System.out.println(names[2]);
-//    System.out.println(names[3]);
-//    System.out.println(names[4]);
+
+    System.out.println("code outside if");
 }
 
-void useLoop() {
-    // Loops
-    System.out.println("start of for loop");
-    for (int i = 0; i <= 10; i += 4) {
-        System.out.println("hello " + i);
+void useIfstatementWithConditions(){
+    int age = 15;
+    boolean isAdult = age >= 16;
+    if(isAdult){
+        System.out.println("is adult :)");
+    } else {
+        System.out.println("is not adult :(");
     }
-    System.out.println("end of for loop");
 
-    System.out.println("reverse loop");
-
-    for (int i = 10; i > 0; i--) {
-        System.out.println("hello " + i);
-    }
+    System.out.println("code outside if");
 }
