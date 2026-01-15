@@ -7,7 +7,9 @@ public class Dates {
         System.out.println(LocalDateTime.now());
         System.out.println(ZonedDateTime.now());
         System.out.println(Instant.now());
+
     }
+
     void showAnotherTimeZoneInOthersCountry(){
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime nowSydney = LocalDateTime.now(ZoneId.of("Australia/Sydney"));
@@ -20,6 +22,7 @@ public class Dates {
             System.out.println(availableZoneId);
         }
     }
+
     void customizeDateTime(){
         LocalDateTime someDate = LocalDateTime.of(
                 2000,
@@ -39,6 +42,7 @@ public class Dates {
 
         System.out.println("Only date: " + dateOnly);
     }
+
     void useLocalDate() {
         // Working with Dates
         LocalDate now = LocalDate.now();
