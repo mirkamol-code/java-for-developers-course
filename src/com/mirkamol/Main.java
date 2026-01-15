@@ -1,16 +1,15 @@
 
 void main() {
-    int monthlyRentIncome = 1_000;
-    int originalPriceOfProperty = 100_000;
-    double annualRentalYield = calculateAnnualRentalYield(monthlyRentIncome, originalPriceOfProperty);
+    // Type interface with var keywoard
+    var name = "Jamila";
+    var names = new String[]{"Jamila", "Alex"};
+    var age = 22;
+    var isAdult = false;
+    var balance = 1_000_000.33;
 
-    System.out.println("Rental yield per year: " + annualRentalYield + " %");
-}
-double calculateAnnualRentalYield(int monthlyRent, int originalPriceOfProperty) {
-    double annualRentalIncome = calculateAnnualRentalIncome(monthlyRent);
-    return annualRentalIncome / originalPriceOfProperty * 100;
-}
-
-private int calculateAnnualRentalIncome(int monthlyRent) {
-    return monthlyRent * 12;
+    System.out.println("Name: " + name);
+    System.out.println("Names: " + Arrays.toString(names));
+    System.out.println("Age: " + age);
+    System.out.println("isAdult: " + isAdult);
+    System.out.println("balance: " + balance);
 }
