@@ -23,6 +23,7 @@ void main() {
     Person person = new Person(
             "Shojahon",
             "Akbarov",
+            Gender.MALE,
             address,
             chevrolet,
             house

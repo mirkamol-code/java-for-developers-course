@@ -8,9 +8,10 @@ public class Person {
     private Car car;
     private House house;
 
-    public Person(String name, String surName, Address address, Car car, House house) {
+    public Person(String name, String surName, Gender gender, Address address, Car car, House house) {
         this.name = name;
         this.surName = surName;
+        this.gender = gender;
         this.address = address;
         this.car = car;
         this.house = house;
@@ -33,6 +34,14 @@ public class Person {
 
     public void setSurName(String surName) {
         this.surName = surName;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public Address getAddress() {
@@ -64,10 +73,10 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", surName='" + surName + '\'' +
+                ", gender=" + gender +
                 ", address=" + address +
                 ", car=" + car +
                 ", house=" + house +
                 '}';
     }
-
 }
