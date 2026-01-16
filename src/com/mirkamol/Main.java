@@ -1,16 +1,63 @@
-import com.mirkamol.MyCheckedException;
-import com.mirkamol.MyUnCheckedException;
-
 void main() {
-    try {
-        System.out.println(divide(10, 0));
-    } catch (MyCheckedException e) {
-        System.out.println(e.getMessage());    }
+// Working with Files
+    File file = createFile("src/foo.txt");
+//    writeToFile(file, false);
+//    readFile(file);
+    writeToFileWithTryResources(file, true);
 }
 
-public static int divide(int a, int b) throws MyCheckedException {
-    if (b == 0) {
-        throw new MyCheckedException("Cannot divide by zero");
+private static void readFile(File file) {
+    try {
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNext()) {
+            System.out.println(scanner.nextLine());
+        }
+    } catch (FileNotFoundException e) {
+        System.out.println(e.getMessage());
     }
-    return a / b;
+}
+
+/**
+ * This method doesn't require to flush and close file after writingToFile
+ * it automatically flushes and closes because Anything implents Closeable and Flushable, it means we can use tryWithResources(flush(), close()).
+ * The main purpose of the 'try-with-resources' statement in Java to automatically close resources after use
+ *
+ * @param file
+ * @param append
+ */
+private static void writeToFileWithTryResources(File file, boolean append) {
+    try (
+            FileWriter fileWriter = new FileWriter(file, append);
+            PrintWriter writer = new PrintWriter(fileWriter);
+    ) {
+        writer.println("Javohir");
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+    }
+}
+
+private static void writeToFile(File file, boolean append) {
+    try {
+        FileWriter fileWriter = new FileWriter(file, append);
+        PrintWriter writer = new PrintWriter(fileWriter);
+        writer.println("Mirkamol");
+        writer.flush();
+        writer.close();
+
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+    }
+}
+
+public static File createFile(String path) {
+    try {
+        File file = new File(path);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        return file;
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+        throw new IllegalStateException();
+    }
 }
