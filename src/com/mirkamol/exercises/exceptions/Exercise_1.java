@@ -1,4 +1,4 @@
-package com.mirkamol.exceptions;
+package com.mirkamol.exercises.exceptions;
 
 
 public class Exercise_1 {
@@ -29,5 +29,6 @@ public class Exercise_1 {
         }catch (ArithmeticException e){
             System.out.println("Cannot Divide by 0");
         }
+
     }
 }
